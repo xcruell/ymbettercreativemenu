@@ -1,0 +1,47 @@
+{
+  "ymbettercreativemenu.config.title": "Better Creative Menu",
+
+  "ymbettercreativemenu.configuration.panel": "Panel",
+  "ymbettercreativemenu.configuration.toggleButton": "Toggle Panel Button",
+  "ymbettercreativemenu.configuration.appearance": "Appearance",
+
+  "ymbettercreativemenu.config.panelWidth": "Panel Width",
+  "ymbettercreativemenu.config.panelHeight": "Panel Height",
+  "ymbettercreativemenu.config.panelOffsetX": "Panel Offset X",
+  "ymbettercreativemenu.config.panelOffsetY": "Panel Offset Y",
+
+  "ymbettercreativemenu.config.borderColor": "Panel Border Color",
+  "ymbettercreativemenu.config.borderAlpha": "Panel Border Alpha",
+
+  "ymbettercreativemenu.config.toggleButtonX": "Toggle Button X",
+  "ymbettercreativemenu.config.toggleButtonY": "Toggle Button Y",
+  "ymbettercreativemenu.config.toggleButtonSize": "Toggle Button Size",
+
+  "ymbettercreativemenu.config.listFontSize": "List Font Size",
+  "ymbettercreativemenu.config.fontColor": "Font Color",
+  "ymbettercreativemenu.config.fontAlpha": "Font Alpha",
+
+  "ymbettercreativemenu.config.panelBackgroundColor": "Panel Background Color",
+  "ymbettercreativemenu.config.panelBackgroundAlpha": "Panel Background Alpha",
+
+  "ymbettercreativemenu.config.rowHoverColor": "Row Hover Color",
+  "ymbettercreativemenu.config.rowHoverAlpha": "Row Hover Alpha Male",
+
+  "ymbettercreativemenu.config.searchBoxColor": "Search Box Color",
+  "ymbettercreativemenu.config.searchBoxAlpha": "Search Box Alpha",
+  "ymbettercreativemenu.config.searchBoxMaxWidth": "Search Box Max Width",
+
+  "ymbettercreativemenu.config.reset": "Reset to Defaults",
+
+  "gui.ymbettercreativemenu.search.text": "Search...",
+  "gui.ymbettercreativemenu.search.box": "Search mods...",
+
+  "gui.ymbettercreativemenu.tooltip.toggle_list": "Show / Hide Mod List",
+  "gui.ymbettercreativemenu.favorite.toggle": "Show Favorites",
+  "gui.ymbettercreativemenu.favorite.toggle_back": "Show Mod List",
+  "gui.ymbettercreativemenu.favorite.add": "Add to Favorites",
+  "gui.ymbettercreativemenu.favorite.remove": "Remove from Favorites",
+
+  "gui.ymbettercreativemenu.expand": "Expand",
+  "gui.ymbettercreativemenu.collapse": "Collapse"
+}

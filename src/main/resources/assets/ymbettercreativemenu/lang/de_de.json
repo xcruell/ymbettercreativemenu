@@ -1,0 +1,47 @@
+{
+  "ymbettercreativemenu.config.title": "Better Creative Menu",
+
+  "ymbettercreativemenu.configuration.panel": "Panel",
+  "ymbettercreativemenu.configuration.toggleButton": "Panel-Schaltfläche",
+  "ymbettercreativemenu.configuration.appearance": "Darstellung",
+
+  "ymbettercreativemenu.config.panelWidth": "Panelbreite",
+  "ymbettercreativemenu.config.panelHeight": "Panelhöhe",
+  "ymbettercreativemenu.config.panelOffsetX": "Panel-Versatz X",
+  "ymbettercreativemenu.config.panelOffsetY": "Panel-Versatz Y",
+
+  "ymbettercreativemenu.config.borderColor": "Rahmenfarbe des Panels",
+  "ymbettercreativemenu.config.borderAlpha": "Rahmen-Transparenz",
+
+  "ymbettercreativemenu.config.toggleButtonX": "Schaltflächen-Versatz X",
+  "ymbettercreativemenu.config.toggleButtonY": "Schaltflächen-Versatz Y",
+  "ymbettercreativemenu.config.toggleButtonSize": "Schaltflächengröße",
+
+  "ymbettercreativemenu.config.listFontSize": "Schriftgröße der Liste",
+  "ymbettercreativemenu.config.fontColor": "Schriftfarbe",
+  "ymbettercreativemenu.config.fontAlpha": "Schrift-Transparenz",
+
+  "ymbettercreativemenu.config.panelBackgroundColor": "Hintergrundfarbe des Panels",
+  "ymbettercreativemenu.config.panelBackgroundAlpha": "Hintergrund-Transparenz",
+
+  "ymbettercreativemenu.config.rowHoverColor": "Hover-Farbe der Zeilen",
+  "ymbettercreativemenu.config.rowHoverAlpha": "Hover-Transparenz der Zeilen",
+
+  "ymbettercreativemenu.config.searchBoxColor": "Farbe des Suchfelds",
+  "ymbettercreativemenu.config.searchBoxAlpha": "Transparenz des Suchfelds",
+  "ymbettercreativemenu.config.searchBoxMaxWidth": "Maximale Breite des Suchfelds",
+
+  "ymbettercreativemenu.config.reset": "Auf Standardwerte zurücksetzen",
+
+  "gui.ymbettercreativemenu.search.text": "Suchen...",
+  "gui.ymbettercreativemenu.search.box": "Mods suchen...",
+
+  "gui.ymbettercreativemenu.tooltip.toggle_list": "Mod-Liste ein-/ausblenden",
+  "gui.ymbettercreativemenu.favorite.toggle": "Favoriten anzeigen",
+  "gui.ymbettercreativemenu.favorite.toggle_back": "Mod-Liste anzeigen",
+  "gui.ymbettercreativemenu.favorite.add": "Zu Favoriten hinzufügen",
+  "gui.ymbettercreativemenu.favorite.remove": "Aus Favoriten entfernen",
+
+  "gui.ymbettercreativemenu.expand": "Aufklappen",
+  "gui.ymbettercreativemenu.collapse": "Zuklappen"
+}

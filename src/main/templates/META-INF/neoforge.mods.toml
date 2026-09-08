@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="YesMenn!, xcruell"
+logoFile="icon.png"
+description='''
+Better Creative Menu for Minecraft? Yes Menn!
+Did you ever had too many mods installed and Creative Mode Tab navigation was a pain?
+Search no more! Better Creative Menu by YesMenn! is the answer.
+Features:
+- Sorted list with all mod tabs
+- Search box for mod names
+- Favorite/bookmark function
+- Bundles mods with multiple tabs into one collapsable entry
+'''
+
+[[mixins]]
+config="${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"

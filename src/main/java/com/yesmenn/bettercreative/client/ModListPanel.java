@@ -103,7 +103,10 @@ public class ModListPanel {
 
     private EditBox searchBox;
 
-    private boolean favoritesOnly = false;
+    //private boolean favoritesOnly = false;
+
+    private static boolean lastFavoritesOnly = false;
+    private boolean favoritesOnly = lastFavoritesOnly;
 
     private boolean draggingScrollbar = false;
 
@@ -1769,10 +1772,13 @@ public class ModListPanel {
                 searchStarSize
         )) {
 
-            favoritesOnly = !favoritesOnly;
-            scrollOffset = 0;
+        favoritesOnly = !favoritesOnly;
+        lastFavoritesOnly = favoritesOnly;
 
-            return true;
+        scrollOffset = 0;
+
+        return true;
+        
         }
 
         /*

@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.yesmenn.bettercreative.mixin.fabric",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MixinCreativeScreenFabric"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -13,7 +13,9 @@ import java.util.Set;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.yesmenn.bettercreative.config.BetterCreativeConfig;
+import com.yesmenn.bettercreative.mixin.AbstractContainerScreenAccessor;
 import com.yesmenn.bettercreative.mixin.CreativeInventoryAccessor;
+import com.yesmenn.bettercreative.platform.Platform;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -25,8 +27,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModList;
 
 public class ModListPanel {
 
@@ -371,13 +371,13 @@ public class ModListPanel {
                 getPanelHeight();
 
         this.left =
-                screen.getGuiLeft()
+                ((AbstractContainerScreenAccessor) screen).ymbettercreativemenu$getLeftPos()
                         - width
                         - 4
                         + BetterCreativeConfig.PANEL_OFFSET_X.get();
 
         int inventoryCenterY =
-                screen.getGuiTop()
+                ((AbstractContainerScreenAccessor) screen).ymbettercreativemenu$getTopPos()
                         + 82;
 
         this.top =
@@ -1673,13 +1673,7 @@ public class ModListPanel {
             String modId
     ) {
 
-        return ModList.get()
-                .getModContainerById(modId)
-                .map(ModContainer::getModInfo)
-                .map(info ->
-                        info.getDisplayName()
-                )
-                .orElse(modId);
+        return Platform.modDisplayName(modId);
     }
 
     /*
@@ -1982,6 +1976,11 @@ public class ModListPanel {
                      * Select tab
                      */
 
+                    Platform.beforeSelectTab(
+                            screen,
+                            tab
+                    );
+
                     ((CreativeInventoryAccessor)
                             screen)
                             .ymbettercreativemenu$selectTab(
@@ -2098,6 +2097,11 @@ public class ModListPanel {
                     /*
                      * Select tab
                      */
+
+                    Platform.beforeSelectTab(
+                            screen,
+                            tab
+                    );
 
                     ((CreativeInventoryAccessor)
                             screen)

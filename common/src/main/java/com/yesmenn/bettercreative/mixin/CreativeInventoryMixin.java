@@ -36,14 +36,14 @@ public abstract class CreativeInventoryMixin {
                         .get();
 
         int x =
-                screen.getGuiLeft()
+                ((AbstractContainerScreenAccessor) screen).ymbettercreativemenu$getLeftPos()
                         + 24
                         + BetterCreativeConfig
                         .TOGGLE_BUTTON_X
                         .get();
 
         int y =
-                screen.getGuiTop()
+                ((AbstractContainerScreenAccessor) screen).ymbettercreativemenu$getTopPos()
                         - 48
                         + BetterCreativeConfig
                         .TOGGLE_BUTTON_Y

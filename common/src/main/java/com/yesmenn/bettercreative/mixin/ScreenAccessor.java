@@ -1,12 +1,17 @@
 package com.yesmenn.bettercreative.mixin;
 
 import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.screens.Screen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(targets = "net.minecraft.client.gui.screens.Screen")
+@Mixin(Screen.class)
 public interface ScreenAccessor {
 
     @Invoker("addRenderableWidget")
     GuiEventListener ymbettercreativemenu$addRenderableWidget(GuiEventListener widget);
+
+    /** Adds a child without rendering it, like NeoForge's {@code ScreenEvent.Init#addListener}. */
+    @Invoker("addWidget")
+    GuiEventListener ymbettercreativemenu$addWidget(GuiEventListener widget);
 }

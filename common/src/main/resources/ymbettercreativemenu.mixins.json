@@ -3,7 +3,9 @@
   "minVersion": "0.8",
   "package": "com.yesmenn.bettercreative.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
+  "refmap": "ymbettercreativemenu-refmap.json",
+  "client": [
+    "AbstractContainerScreenAccessor",
     "CreativeInventoryAccessor",
     "CreativeInventoryMixin",
     "ScreenAccessor"

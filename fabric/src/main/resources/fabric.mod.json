@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "ymbettercreativemenu",
+  "version": "${version}",
+  "name": "Better Creative Menu? YesMenn!",
+  "description": "Too many mods and Creative Mode Tab navigation is a pain? Sorted, searchable list of all mod tabs with favorites; mods with multiple tabs are bundled into one collapsible entry.",
+  "authors": ["YesMenn!", "xcruell"],
+  "license": "YesMenn Custom License 1.0",
+  "icon": "icon.png",
+
+  "environment": "client",
+
+  "entrypoints": {
+    "client": [
+      "com.yesmenn.bettercreative.client.YMBetterCreativeFabricClient"
+    ],
+    "modmenu": [
+      "com.yesmenn.bettercreative.client.YMBetterCreativeModMenu"
+    ]
+  },
+
+  "mixins": [
+    "ymbettercreativemenu.mixins.json",
+    "ymbettercreativemenu.mixins.fabric.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "1.21.1"
+  },
+
+  "suggests": {
+    "modmenu": "*"
+  }
+}

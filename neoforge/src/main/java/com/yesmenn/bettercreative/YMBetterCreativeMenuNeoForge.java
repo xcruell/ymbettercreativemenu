@@ -1,29 +1,34 @@
 package com.yesmenn.bettercreative;
 
+import com.mojang.logging.LogUtils;
+import com.yesmenn.bettercreative.config.NeoForgeConfigSpec;
+import com.yesmenn.bettercreative.platform.Platform;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import com.yesmenn.bettercreative.config.BetterCreativeConfig;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import org.slf4j.Logger;
 
-@Mod(YMBetterCreativeMenu.MODID)
-public class YMBetterCreativeMenu {
+@Mod(YMBetterCreativeMenuNeoForge.MODID)
+public class YMBetterCreativeMenuNeoForge {
     public static final String MODID = "ymbettercreativemenu";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public YMBetterCreativeMenu(IEventBus modEventBus, ModContainer modContainer) {
+    public YMBetterCreativeMenuNeoForge(IEventBus modEventBus, ModContainer modContainer) {
+        Platform.init(modId -> ModList.get()
+                .getModContainerById(modId)
+                .map(container -> container.getModInfo().getDisplayName())
+                .orElse(modId));
+
         modEventBus.addListener(this::commonSetup);
 
         modContainer.registerConfig(
                 ModConfig.Type.CLIENT,
-                BetterCreativeConfig.CLIENT_SPEC
+                NeoForgeConfigSpec.build()
         );
     }
 
@@ -36,5 +41,4 @@ public class YMBetterCreativeMenu {
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("Better Creative Menu? YesMenn!");
     }
-
 }

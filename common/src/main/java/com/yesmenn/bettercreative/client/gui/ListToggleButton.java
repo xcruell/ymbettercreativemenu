@@ -9,13 +9,13 @@ import net.minecraft.resources.ResourceLocation;
 public class ListToggleButton extends Button {
 
     private static final ResourceLocation NORMAL =
-            ResourceLocation.fromNamespaceAndPath(
+            new ResourceLocation(
                     "ymbettercreativemenu",
                     "textures/gui/list_toggle.png"
             );
 
     private static final ResourceLocation HOVER =
-            ResourceLocation.fromNamespaceAndPath(
+            new ResourceLocation(
                     "ymbettercreativemenu",
                     "textures/gui/list_toggle_hover.png"
             );

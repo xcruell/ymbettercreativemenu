@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.yesmenn.bettercreative.mixin.forge",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "ymbettercreativemenu-refmap.json",
+  "client": [
+    "CreativeScreenPagesAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

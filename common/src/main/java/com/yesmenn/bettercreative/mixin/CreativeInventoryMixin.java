@@ -1,6 +1,7 @@
 package com.yesmenn.bettercreative.mixin;
 
 import com.yesmenn.bettercreative.client.ModListPanel;
+import com.yesmenn.bettercreative.client.ScreenWidgets;
 import com.yesmenn.bettercreative.client.YMBetterCreativeClient;
 import com.yesmenn.bettercreative.client.gui.ListToggleButton;
 import com.yesmenn.bettercreative.config.BetterCreativeConfig;
@@ -62,9 +63,9 @@ public abstract class CreativeInventoryMixin {
                                         )
                 );
 
-        ((ScreenAccessor) screen)
-                .ymbettercreativemenu$addRenderableWidget(
-                        ymbettercreativemenu$toggleButton
-                );
+        ScreenWidgets.addRenderableWidget(
+                screen,
+                ymbettercreativemenu$toggleButton
+        );
     }
 }

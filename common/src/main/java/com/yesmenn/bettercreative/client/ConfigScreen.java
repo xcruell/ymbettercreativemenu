@@ -1,7 +1,7 @@
 package com.yesmenn.bettercreative.client;
 
 import com.yesmenn.bettercreative.config.BetterCreativeConfig;
-import com.yesmenn.bettercreative.config.FabricConfigFile;
+import com.yesmenn.bettercreative.config.ConfigFile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -22,7 +22,7 @@ import java.util.List;
  * Config screen for Fabric (opened from Mod Menu). NeoForge uses its generated {@code ConfigurationScreen} instead.
  * One text field per option; invalid input is shown in red and not saved.
  */
-public final class FabricConfigScreen extends Screen {
+public final class ConfigScreen extends Screen {
 
     private static final int VALID_COLOR = 0xE0E0E0;
     private static final int INVALID_COLOR = 0xFF5555;
@@ -30,7 +30,7 @@ public final class FabricConfigScreen extends Screen {
     private final Screen parent;
     private final List<OptionEntry> optionEntries = new ArrayList<>();
 
-    public FabricConfigScreen(Screen parent) {
+    public ConfigScreen(Screen parent) {
         super(Component.translatable("ymbettercreativemenu.config.title"));
         this.parent = parent;
     }
@@ -39,7 +39,7 @@ public final class FabricConfigScreen extends Screen {
     protected void init() {
         optionEntries.clear();
 
-        OptionList list = new OptionList(minecraft, width, height - 64, 32);
+        OptionList list = new OptionList(minecraft, width, height, 32, height - 32);
         String section = null;
 
         for (BetterCreativeConfig.Option<?> option : BetterCreativeConfig.OPTIONS) {
@@ -69,6 +69,8 @@ public final class FabricConfigScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        // 1.20.1: Screen#render does not draw the background itself yet.
+        renderBackground(graphics);
         super.render(graphics, mouseX, mouseY, partialTick);
         graphics.drawCenteredString(font, title, width / 2, 12, 0xFFFFFF);
     }
@@ -78,7 +80,7 @@ public final class FabricConfigScreen extends Screen {
         for (OptionEntry entry : optionEntries) {
             entry.apply();
         }
-        FabricConfigFile.save();
+        ConfigFile.save();
         minecraft.setScreen(parent);
     }
 
@@ -87,8 +89,9 @@ public final class FabricConfigScreen extends Screen {
      */
 
     private static final class OptionList extends ContainerObjectSelectionList<ConfigEntry> {
-        OptionList(Minecraft minecraft, int width, int height, int y) {
-            super(minecraft, width, height, y, 24);
+        // 1.20.1 list constructor: screen height plus top and bottom edge of the list.
+        OptionList(Minecraft minecraft, int width, int height, int top, int bottom) {
+            super(minecraft, width, height, top, bottom, 24);
         }
 
         void add(ConfigEntry entry) {
@@ -161,7 +164,7 @@ public final class FabricConfigScreen extends Screen {
         private <T> void applyTyped(BetterCreativeConfig.Option<T> typed) {
             T value = typed.parse(box.getValue());
             if (value != null) {
-                FabricConfigFile.set(typed, value);
+                ConfigFile.set(typed, value);
             }
         }
 

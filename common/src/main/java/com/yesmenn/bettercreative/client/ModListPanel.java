@@ -42,47 +42,47 @@ public class ModListPanel {
     private double scrollbarDragOffset = 0.0;
 
     private static final ResourceLocation STAR_FULL =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/star_full.png"
             );
     private static final ResourceLocation STAR_FULL_HOVERED =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/star_full_hover.png"
             );
 
     private static final ResourceLocation STAR_EMPTY_HOVERED =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/star_empty_hover.png"
             );
     private static final ResourceLocation STAR_EMPTY =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/star_empty.png"
             );
 
     private static final ResourceLocation EXPAND =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/expand.png"
             );
     private static final ResourceLocation EXPAND_HOVERED =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/expand_hover.png"
             );
 
     private static final ResourceLocation COLLAPSE =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/collapse.png"
             );
     private static final ResourceLocation COLLAPSE_HOVERED =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/collapse_hover.png"
             );
 
     private static final ResourceLocation SEARCH_CLEAR =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/search_clear.png"
             );
     private static final ResourceLocation SEARCH_CLEAR_HOVERED =
-            ResourceLocation.parse(
+            new ResourceLocation(
                     "ymbettercreativemenu:textures/gui/search_clear_hover.png"
             );
 
@@ -101,7 +101,7 @@ public class ModListPanel {
 
     private double scrollOffset = 0.0;
 
-    private EditBox searchBox;
+    private ScaledSearchBox searchBox;
 
     //private boolean favoritesOnly = false;
 
@@ -351,7 +351,7 @@ public class ModListPanel {
                 )
         );
 
-        searchBox.setHeight(
+        searchBox.setBoxHeight(
                 getSearchBoxHeight()
         );
     }

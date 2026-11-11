@@ -1,7 +1,7 @@
 package com.yesmenn.bettercreative.mixin.fabric;
 
 import com.yesmenn.bettercreative.client.YMBetterCreativeClient;
-import com.yesmenn.bettercreative.mixin.ScreenAccessor;
+import com.yesmenn.bettercreative.client.ScreenWidgets;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
@@ -28,7 +28,7 @@ public abstract class MixinCreativeScreenFabric {
     @Inject(method = "init", at = @At("TAIL"))
     private void ym$init(CallbackInfo ci) {
         Screen screen = ym$self();
-        YMBetterCreativeClient.onScreenInit(screen, ((ScreenAccessor) screen)::ymbettercreativemenu$addWidget);
+        YMBetterCreativeClient.onScreenInit(screen, widget -> ScreenWidgets.addWidget(screen, widget));
     }
 
     @Inject(method = "renderBg", at = @At("TAIL"))
@@ -64,7 +64,8 @@ public abstract class MixinCreativeScreenFabric {
     }
 
     @Inject(method = "mouseScrolled", at = @At("HEAD"), cancellable = true)
-    private void ym$mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY,
+    // 1.20.1: mouseScrolled has a single (vertical) delta; the horizontal one came with 1.20.2.
+    private void ym$mouseScrolled(double mouseX, double mouseY, double scrollY,
                                   CallbackInfoReturnable<Boolean> cir) {
         if (YMBetterCreativeClient.onMouseScrolled(ym$self(), mouseX, mouseY, scrollY)) {
             cir.setReturnValue(true);

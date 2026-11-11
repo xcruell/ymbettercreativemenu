@@ -3,10 +3,13 @@ plugins {
 }
 
 base {
-    archivesName = archives_base_name + '-neoforge'
+    archivesName = archives_base_name + '-forge'
 }
 
 loom {
+    forge {
+        mixinConfigs = ["${mod_id}.mixins.json", "${mod_id}.mixins.forge.json"]
+    }
     mixin {
         useLegacyMixinAp = true
         defaultRefmapName = 'ymbettercreativemenu-refmap.json'
@@ -23,7 +26,7 @@ loom {
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    neoForge "net.neoforged:neoforge:${neo_version}"
+    forge "net.minecraftforge:forge:${forge_version}"
     mappings loom.layered {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-${parchment_minecraft_version}:${parchment_mappings_version}@zip")
@@ -33,7 +36,7 @@ dependencies {
 def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
     def replaceProperties = [
             minecraft_version_range: minecraft_version_range,
-            neo_version            : neo_version,
+            forge_version          : forge_version,
             loader_version_range   : loader_version_range,
             mod_id                 : mod_id,
             mod_name               : mod_name,
@@ -47,7 +50,7 @@ def generateModMetadata = tasks.register('generateModMetadata', ProcessResources
 }
 
 // The common sources are compiled here: FML only loads classes from the mod's own module (the classpath entries
-// next to neoforge.mods.toml), so a separate common JAR would be invisible to it.
+// next to mods.toml), so a separate common JAR would be invisible to it.
 sourceSets.main.java.srcDir project(':common').sourceSets.main.java.srcDirs
 sourceSets.main.resources.srcDir generateModMetadata
 

@@ -34,6 +34,11 @@ public class ScaledSearchBox extends EditBox {
         setTextColor(ModListPanel.getFontColor());
     }
 
+    /** Vanilla 1.20.1 widgets have no setHeight (only Forge patches one in), so the field is set directly. */
+    public void setBoxHeight(int height) {
+        this.height = height;
+    }
+
     @Override
     public void renderWidget(
             GuiGraphics graphics,

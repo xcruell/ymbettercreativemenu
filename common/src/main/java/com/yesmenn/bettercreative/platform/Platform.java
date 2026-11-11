@@ -3,6 +3,8 @@ package com.yesmenn.bettercreative.platform;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.world.item.CreativeModeTab;
 
+import java.nio.file.Path;
+
 /**
  * The few things common code needs from the mod loader. The loader module installs its implementation with
  * {@link #init(Impl)} before anything else of the mod runs.
@@ -12,6 +14,9 @@ public final class Platform {
     public interface Impl {
         /** Display name of a loaded mod, or {@code modId} if the mod is unknown. */
         String modDisplayName(String modId);
+
+        /** The game's config directory. */
+        Path configDir();
 
         /**
          * Called right before a creative tab is selected from the panel. Loaders with paged creative tabs switch to
@@ -39,6 +44,10 @@ public final class Platform {
 
     public static String modDisplayName(String modId) {
         return impl().modDisplayName(modId);
+    }
+
+    public static Path configDir() {
+        return impl().configDir();
     }
 
     public static void beforeSelectTab(CreativeModeInventoryScreen screen, CreativeModeTab tab) {

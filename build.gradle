@@ -6,16 +6,16 @@ tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-tasks.register('neoforge-build') {
-    group = 'NeoForge'
-    description = 'Build the NeoForge JAR'
-    dependsOn ':neoforge:build'
+tasks.register('forge-build') {
+    group = 'Forge'
+    description = 'Build the Forge JAR'
+    dependsOn ':forge:build'
 }
 
-tasks.register('neoforge-runClient') {
-    group = 'NeoForge'
-    description = 'Run the NeoForge client'
-    dependsOn ':neoforge:runClient'
+tasks.register('forge-runClient') {
+    group = 'Forge'
+    description = 'Run the Forge client'
+    dependsOn ':forge:runClient'
 }
 
 tasks.register('fabric-build') {
@@ -35,13 +35,13 @@ subprojects {
     group = mod_group_id
 
     plugins.withId('java') {
-        java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+        java.toolchain.languageVersion = JavaLanguageVersion.of(17)
         tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
     }
 
     repositories {
         maven { name = 'ParchmentMC'; url = 'https://maven.parchmentmc.org' }
-        maven { name = 'neoforged releases'; url = 'https://maven.neoforged.net/releases/' }
+        maven { name = 'MinecraftForge'; url = 'https://maven.minecraftforge.net/' }
         maven { name = 'TerraformersMC'; url = 'https://maven.terraformersmc.com/' }
     }
 }

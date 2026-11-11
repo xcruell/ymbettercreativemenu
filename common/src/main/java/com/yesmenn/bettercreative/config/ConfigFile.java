@@ -6,7 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
-import net.fabricmc.loader.api.FabricLoader;
+import com.yesmenn.bettercreative.platform.Platform;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -17,20 +17,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Fabric storage for {@link BetterCreativeConfig}: {@code config/ymbettercreativemenu-client.json}, grouped by the
- * same sections and keys as the NeoForge TOML. Invalid or missing values fall back to the default.
+ * Storage for {@link BetterCreativeConfig} on both loaders (1.20.1 Forge has no config screen of its own, so Forge and
+ * Fabric share this file and {@code ConfigScreen}): {@code config/ymbettercreativemenu-client.json}, grouped by the
+ * same sections and keys as the NeoForge TOML on the 1.21.1 branch. Invalid or missing values fall back to the
+ * default.
  */
-public final class FabricConfigFile {
+public final class ConfigFile {
 
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Map<BetterCreativeConfig.Option<?>, Object> VALUES = new HashMap<>();
 
-    private FabricConfigFile() {
+    private ConfigFile() {
     }
 
     private static Path path() {
-        return FabricLoader.getInstance().getConfigDir().resolve("ymbettercreativemenu-client.json");
+        return Platform.configDir().resolve("ymbettercreativemenu-client.json");
     }
 
     public static void load() {

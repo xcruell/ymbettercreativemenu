@@ -1,3 +1,3 @@
 # YM! BetterCreativeMenu
 
-A NeoForge + Fabric mod for Minecraft 1.21.1.
+A Forge + Fabric mod for Minecraft 1.20.1.

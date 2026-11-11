@@ -8,6 +8,8 @@ version="${mod_version}"
 displayName="${mod_name}"
 authors="YesMenn!, xcruell"
 logoFile="icon.png"
+# Client-only mod: servers and other clients do not need it.
+displayTest="IGNORE_ALL_VERSION"
 description='''
 Better Creative Menu for Minecraft? Yes Menn!
 Did you ever had too many mods installed and Creative Mode Tab navigation was a pain?
@@ -19,19 +21,16 @@ Features:
 - Bundles mods with multiple tabs into one collapsable entry
 '''
 
-[[mixins]]
-config="${mod_id}.mixins.json"
-
 [[dependencies.${mod_id}]]
-modId="neoforge"
-type="required"
-versionRange="[${neo_version},)"
+modId="forge"
+mandatory=true
+versionRange="[47,)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="minecraft"
-type="required"
+mandatory=true
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
